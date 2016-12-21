@@ -1,0 +1,21 @@
+{
+  "name": "OpenTok-Green-Screen",
+  "description": "A green screen demo based on OpenTok.",
+  "repository": "https://github.com/kaustav/opentok-green-screen",
+  "keywords": ["call", "tokbox", "opentok", "webrtc", "green-screen"],
+  "env": {
+    "opentok__api_key": {
+      "description": "An API key provided by opentok"
+    },
+    "opentok__api_secret": {
+      "description": "An API secret provided by opentok"
+    },
+    "app__base_url": {
+      "description": "Base URL for the application, including protocol, hostname and port. e.g., https://example.com or http://example.com:8080. Avoid trailing slash."
+    },
+    "app__ga": {
+      "description": "Google Analytics Tracking ID",
+      "required": false
+    }
+  }
+}

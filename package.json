@@ -1,0 +1,39 @@
+{
+  "name": "opentok-green-screen",
+  "version": "0.0.1",
+  "description": "A green-screen WebRTC demo based on OpenTok",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "certs": "openssl req -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 365 -out cert.pem"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaustavdm/opentok-green-screen.git"
+  },
+  "engines": {
+    "node": "6.9.x",
+    "npm": "3.x"
+  },
+  "keywords": [
+    "call",
+    "tokbox",
+    "opentok",
+    "webrtc",
+    "green-screen"
+  ],
+  "author": "Kaustav Das Modak <kaustav.dasmodak@yahoo.co.in>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/kaustavdm/opentok-green-screen/issues"
+  },
+  "homepage": "https://github.com/kaustavdm/opentok-green-screen#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "opentok": "^2.5.0"
+  }
+}
