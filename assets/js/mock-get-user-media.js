@@ -6,7 +6,20 @@
  */
 function mockGetUserMedia(mockOnStreamAvailable) {
   var oldGetUserMedia;
-  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  if (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia) {
+    oldGetUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
+      navigator.mozGetUserMedia;
+    navigator.webkitGetUserMedia = navigator.getUserMedia = navigator.mozGetUserMedia =
+      function getUserMedia(constraints, onStreamAvailable, onStreamAvailableError,
+                            onAccessDialogOpened, onAccessDialogClosed, onAccessDenied) {
+        console.log("Used old gUM");
+        return oldGetUserMedia.call(navigator, constraints, function (stream) {
+          console.log("Returning mock stream", stream);
+          onStreamAvailable(mockOnStreamAvailable(stream));
+        }, onStreamAvailableError,
+        onAccessDialogOpened, onAccessDialogClosed, onAccessDenied);
+      };
+  } else if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     oldGetUserMedia = navigator.mediaDevices.getUserMedia;
     navigator.mediaDevices.getUserMedia = function getUserMedia (constraints) {
       console.log("Used new gUM (navigator.mediaDevices.getUserMedia)");
@@ -22,21 +35,7 @@ function mockGetUserMedia(mockOnStreamAvailable) {
         });
       });
     };
-  } else if (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia) {
-    oldGetUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
-      navigator.mozGetUserMedia;
-    navigator.webkitGetUserMedia = navigator.getUserMedia = navigator.mozGetUserMedia =
-      function getUserMedia(constraints, onStreamAvailable, onStreamAvailableError,
-                            onAccessDialogOpened, onAccessDialogClosed, onAccessDenied) {
-        console.log("Used old gUM");
-        return oldGetUserMedia.call(navigator, constraints, function (stream) {
-          console.log("Returning mock stream", stream);
-          onStreamAvailable(mockOnStreamAvailable(stream));
-        }, onStreamAvailableError,
-        onAccessDialogOpened, onAccessDialogClosed, onAccessDenied);
-      };
   } else {
     console.log('Could not find getUserMedia function to mock out');
   }
-  window.navigator = navigator;
 };

@@ -27,9 +27,14 @@ window.addEventListener('load', function () {
           console.log("Error in publishing", err);
           return;
         }
-        document.getElementById(publisher.id).appendChild(canvas);
       });
 
+      var interval = setInterval(function () {
+        if (canvas) {
+          document.getElementById(publisher.id).appendChild(canvas);
+          clearInterval(interval);
+        }
+      }, 1000);
     });
   });
 });

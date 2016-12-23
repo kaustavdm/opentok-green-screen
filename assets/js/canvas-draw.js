@@ -91,7 +91,11 @@ var canvas_draw = function (videoElement, canvas) {
     }
     tmpCtx.drawImage(videoElement, 0, 0, tmpCanvas.width, tmpCanvas.height);
     imgData = tmpCtx.getImageData(0, 0, tmpCanvas.width, tmpCanvas.height);
-    replaceGray(imgData.data);
+
+    // Do the replace
+    // replaceGray(imgData.data);
+    replaceGreen(imgData.data);
+
     ctx.putImageData(imgData, 0, 0);
     requestAnimationFrame(drawFrame);
   };
