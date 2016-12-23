@@ -57,7 +57,7 @@ app.use("/api", require("./api"));
 
 // Handler for Call pages
 app.get("/call/:id", (req, res) => {
-  res.render("call");
+  res.render("call", { call_id: req.params.id });
 });
 
 // Mount the `./assets` dir to web-root as static.

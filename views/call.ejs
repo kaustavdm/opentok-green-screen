@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="A green-screen WebRTC demo based on OpenTok. Join the call.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OpenTok Green Screen Demo</title>
+
+        <meta name="apple-mobile-web-app-title" content="OpenTok Green Screen Demo">
+        <meta name="application-name" content="OpenTok Green Screen Demo">
+        <meta name="theme-color" content="#0080ab">
+
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+
+    <body>
+
+      <body class="default">
+
+        <section class="page-container">
+          <h1 class="page-title">Green Screen Call</h1>
+
+          <div class="highlight">
+
+            <div class="highlight">
+              <h2>Them</h2>
+              <div id="ot-subscribers"></div>
+            </div>
+
+            <div class="highlight">
+              <h2>You</h2>
+              <div id="ot-publisher"></div>
+            </div>
+            <div class="highlight">
+              <a class="btn btn-light" href="/">Exit</a>
+            </div>
+          </div>
+
+        </section>
+
+        <footer>
+          <p>This demo runs on <a href="https://tokbox.com" target="_blank">TokBox</a> | <a href="https://github.com/kaustavdm/opentok-green-screen" target="_blank">View Source</a></p>
+        </footer>
+
+        <script>
+          // Inject the call ID and make it globally available
+          var call_id = "<%= call_id %>";
+        </script>
+
+        <!-- Load a simple XHR handling layer -->
+        <script type="text/javascript" src="/js/xhr.js"></script>
+
+        <!-- Load canvas manipulation script. This is the script that handles replacing of green screen. -->
+        <script type="text/javascript" src="/js/canvas-draw.js"></script>
+
+        <!-- Load custom getUserMedia override -->
+        <script type="text/javascript" src="/js/mock-get-user-media.js"></script>
+        <script type="text/javascript" src="/js/set-mock-gum.js"></script>
+
+        <!-- Load the call handling script -->
+        <script type="text/javascript" src="/js/call.js"></script>
+
+        <!-- Load OpenTok JS SDK -->
+        <script src="https://static.opentok.com/v2/js/opentok.js"></script>
+
+    </body>
+</html>

@@ -50,6 +50,10 @@ router.get("/create", (req, res) => {
       req.utils.error_res(res, 500, "Unable to save response.");
       return;
     }
+    if (req.query.redirect) {
+      res.redirect(`/call/${slug}`);
+      return;
+    }
     req.utils.success_res(res, "Session created", {
       id: slug,
       call_url: `${req.config.app.base_url}/call/${slug}`,
@@ -79,11 +83,11 @@ router.get("/:id/token", load_call, (req, res) => {
   }
 
   req.utils.success_res(res, "Token created", {
-    token: token,
+    ot_token: token,
     ot_session_id: req.call_data.ot_session_id,
     ot_api_key: req.config.opentok.api_key,
     call_id: req.call_data.id,
-    call_url: `${req.config.app.base_url}/#call/${req.call_data.id}`
+    call_url: `${req.config.app.base_url}/call/${req.call_data.id}`
   });
 });
 

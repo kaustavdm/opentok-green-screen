@@ -342,3 +342,8 @@ footer a:hover {
 footer p {
     text-align: center;
 }
+
+/* - Call ------------------------------------- */
+#publisher-video {
+    display: none;
+}
