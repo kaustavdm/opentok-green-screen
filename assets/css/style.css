@@ -181,6 +181,9 @@ input[type="submit"].btn.btn-red:disabled {
 
 .highlight .highlight {
     background-color: #eee;
+    width: 75%;
+    padding: 2rem;
+    margin: 2rem auto;
 }
 
 .leader {
