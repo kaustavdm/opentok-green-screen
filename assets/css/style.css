@@ -170,10 +170,11 @@ input[type="submit"].btn.btn-red:disabled {
 }
 
 .highlight {
-    width: 75%;
+    width: 90%;
+    min-width: 328px;
     margin: 0 auto;
     position: relative;
-    padding: 2rem;
+    padding: 16px 2px;
     background-color: #fafafa;
     text-align: center;
 }
@@ -298,29 +299,6 @@ body > section {
     color: #0080ab;
 }
 
-.msg {
-    padding: 1rem;
-    background-color: #0099cc;
-    color: #fff;
-    font-size: 1.125rem;
-}
-
-.msg.error-msg {
-    background-color: #ce6363;
-}
-
-.box > div {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.box > div > h2 {
-    color: #0080ab;
-    padding: 0.25rem;
-    margin: 0 0 0.25rem 0;
-    font-size: 1rem;
-}
-
 footer {
     width: 100%;
     margin: 2rem 0 0 0;
@@ -346,4 +324,14 @@ footer p {
 /* - Call ------------------------------------- */
 #publisher-video {
     display: none;
+}
+
+canvas {
+    background-color: transparent;
+}
+
+#ot-subscribers .OT_subscriber,
+#ot-publisher {
+    margin: 0 auto;
+    display: inline-block;
 }

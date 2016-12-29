@@ -11,6 +11,11 @@ var canvas_draw = function (videoElement, canvas) {
       ctx,
       imgData;
 
+  var bg = new Image();
+  bg.src = "/images/tokbox_city2.png";
+  bg.width = 320;
+  bg.height = 240;
+
   var replaceGreen = function (data) {
     var len = data.length;
 
@@ -96,12 +101,15 @@ var canvas_draw = function (videoElement, canvas) {
     // replaceGray(imgData.data);
     replaceGreen(imgData.data);
 
-    ctx.putImageData(imgData, 0, 0);
+    tmpCtx.putImageData(imgData, 0, 0);
+    ctx.drawImage(bg, 0, 0);
+    ctx.drawImage(tmpCanvas, 0, 0);
+
     requestAnimationFrame(drawFrame);
   };
 
   // Drawing
   console.log("Drawing");
   requestAnimationFrame(drawFrame);
-
+  console.log("BG", bg);
 };
