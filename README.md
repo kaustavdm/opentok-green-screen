@@ -7,8 +7,17 @@ A green-screen WebRTC demo based on OpenTok.
 
 ## Requirements
 
+### Server-side
+
 - NodeJS v6.9+
 - TokBox Account (API Key and Secret)
+
+### Browser
+
+- Chrome 51+
+- Firefox 49+
+
+This demo uses the `captureStream` API and adds audio to stream, which only works in these browser versions and above.
 
 ## Install
 
@@ -25,6 +34,14 @@ If you want `node` to serve this application using SSL, you will need to edit `c
 **Self-signed certificate**: If you have `openssl` installed and on `PATH`, you can run `npm run certs` to generate a self-signed certificate. This command will create `key.pem` and `cert.pem` in the project root, which are also the default value for the `ssl` configuration.
 
 If you are deploying to Heroku, you do not need to worry about the SSL config.
+
+## Project architecture
+
+- `server.js` - This is the main server script that loads the APIs and starts the NodeJS server.
+- `config.sample.js` - Contains the project configuration, which needs to be copied to `config.js` before running the server.
+- `api/session.js` - Contains a simple JSON API for fetching OpenTok sessions and tokens. This API abstracts OpenTok sessions as rooms. Each rooms use an OpenTok session ID and creates a new token for each room join request.
+- `assets/` - Client-side assets (styles, scripts, images) that are served as static files by the server.
+- `views/` - Server-side views that are rendered.
 
 ## Credits
 
