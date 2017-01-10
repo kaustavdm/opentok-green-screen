@@ -5,6 +5,16 @@ A green-screen WebRTC demo based on OpenTok.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/kaustavdm/opentok-green-screen)
 
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Install](#install)
+  - [SSL requirements](#ssl-requirements)
+- [Project architecture](#project-architecture)
+- [Credits](#credits)
+
+---
+
 ## Requirements
 
 ### Server-side
