@@ -31,16 +31,18 @@ A [green-screen](https://en.wikipedia.org/wiki/Chroma_key) WebRTC demo based on 
 
 This demo uses the `captureStream` API and adds audio to stream, which only works in these browser versions and above.
 
+**Note:** This demo uses significant CPU due to the amount of image manipulations required. You may hear your computer groaning. Don't worry.
+
 ## Architecture
 
 ### How it works
 
-This demo works has three main components: A `<video>` element, an intermediate canvas (c1) and a final canvas (c2). The stages in which it works are:
+This demo has three main components: A `<video>` element, an intermediate canvas (c1) and a final canvas (c2). The stages in which it works are:
 
 1. User's media is captured from camera (webcam) and played in the `<video>` element.
-2. On each animation frame of the `<video>` element, it's contents are put the intermediate `<canvas>` element, c1.
+2. On each animation frame of the `<video>` element, its contents are put the intermediate `<canvas>` element, c1.
 3. Each frame of c1 is taken and a modified image data is produced per frame by making all matching green pixels transparent.
-4. For each frame of c1, c2 is painted with the background image and then with the modified image data from c1.
+4. For each frame of c1, c2 is painted with a pre-defined background image and then overlayed with the modified image data from c1.
 5. `getUserMedia` is hijacked to return captured stream from c2 by calling `captureStream()` on c2, which is then piped in to OpenTok's stream.
 
 This process ensures that the stream sent out by an OpenTok publisher already has the replacement done. While this puts more load on the publisher, there are no further manipulations required on the subscribers' side.
