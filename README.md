@@ -49,9 +49,15 @@ If you are deploying to Heroku, you do not need to worry about the SSL config.
 
 - `server.js` - This is the main server script that loads the APIs and starts the NodeJS server.
 - `config.sample.js` - Contains the project configuration, which needs to be copied to `config.js` before running the server.
-- `api/session.js` - Contains a simple JSON API for fetching OpenTok sessions and tokens. This API abstracts OpenTok sessions as rooms. Each rooms use an OpenTok session ID and creates a new token for each room join request.
+- `api/session.js` - Contains a simple JSON API for fetching OpenTok sessions and tokens. This API abstracts OpenTok sessions as rooms. Each room maps to an OpenTok session ID. The API creates a new OpenTok session ID when creating a room and creates a new token for each room join request.
 - `assets/` - Client-side assets (styles, scripts, images) that are served as static files by the server.
+  - `assets/js/xhr.js` - A simple XHR wrapper.
+  - `assets/js/canvas-draw.js` - This script provides a function for doing the actual green-screen replace using a HTML `canvas`.
+  - `assets/js/mock-get-user-media.js` - Creates a function to override `getUserMedia`. We need it to be able to hijack `getUserMedia` return a stream that we want.
+  - `assets/js/set-mock-gum.js` - This calls the override created by `mock-get-user-media.js` and sends the captured `canvas` stream.
+  - `assets/js/call.js` - This fetches OpenTok credentials from the JSON API using XHR and sets up a simple multi-party call using OpenTok's JS SDK.
 - `views/` - Server-side views that are rendered.
+  - `views/call.ejs` - This view is rendered during a call. See this to get an idea of how the scripts are loaded for the call.
 
 ## Credits
 
