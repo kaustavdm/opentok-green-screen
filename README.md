@@ -57,7 +57,8 @@ This process ensures that the stream sent out by an OpenTok publisher already ha
   - **`assets/js/mock-get-user-media.js`** - Creates a function to override `getUserMedia`. We need it to be able to hijack `getUserMedia` return a stream that we want.
   - **`assets/js/set-mock-gum.js`** - This calls the override created by `mock-get-user-media.js` and sends the captured `canvas` stream.
   - **`assets/js/call.js`** - This fetches OpenTok credentials from the JSON API using XHR and sets up a simple multi-party call using OpenTok's JS SDK.
-- `views/` - Server-side views that are rendered.
+- `libs/` - Reusable utilities and libraries used by the application.
+- `views/` - Server-side views that are rendered on requests.
   - `views/call.ejs` - This view is rendered during a call. See this to get an idea of how the scripts are loaded for the call.
 
 ## Install
