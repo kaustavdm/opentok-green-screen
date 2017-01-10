@@ -3,7 +3,7 @@ OpenTok Green Screen
 
 A [green-screen](https://en.wikipedia.org/wiki/Chroma_key) WebRTC demo based on OpenTok.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/kaustavdm/opentok-green-screen)
+[![Deploy to Heroku](https://img.shields.io/badge/Deploy-Heroku-blue.svg)](https://heroku.com/deploy?template=https://github.com/kaustavdm/opentok-green-screen) [![Demo mirror #1](https://img.shields.io/badge/Demo-mirror_1-green.svg)](https://opentok-green-screen.kaustavdm.in/) [![Demo mirror #2](https://img.shields.io/badge/Demo-mirror_2-green.svg)](https://opentok-green-screen.herokuapp.com/)
 
 ## Table of Contents
 
@@ -71,7 +71,9 @@ This process ensures that the stream sent out by an OpenTok publisher already ha
 
 ### Deploy to Heroku
 
-Alternatively, you can quickly deploy this project to Heroku. Click on the "Deploy to Heroku" button above or [click this link](https://heroku.com/deploy?template=https://github.com/kaustavdm/opentok-green-screen). You will need OpenTok API key and secret and Heroku will manage the rest.
+Alternatively, you can quickly deploy this project to Heroku by clicking the button below. You will need OpenTok API key and secret and Heroku will manage the rest.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/kaustavdm/opentok-green-screen)
 
 ### SSL requirements
 
