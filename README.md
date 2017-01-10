@@ -11,8 +11,7 @@ A [green-screen](https://en.wikipedia.org/wiki/Chroma_key) WebRTC demo based on 
 - [Architecture](#architecture)
   - [How it works](#how-it-works)
   - [Project layout](#project-layout)
-- [Install](#install)
-  - [SSL requirements](#ssl-requirements)
+- [Install and deploy](#install)
 - [Credits](#credits)
 
 ---
@@ -63,9 +62,16 @@ This process ensures that the stream sent out by an OpenTok publisher already ha
 
 ## Install
 
+### Deploy manually
+
+- Clone/[Download](https://github.com/kaustavdm/opentok-green-screen/archive/master.zip) this repository.
 - Copy `config.sample.js` to `config.js` and edit configuration. (See the next section for SSL requirements.)
 - Install dependencies: `npm install`
 - Start the application with: `npm start`
+
+### Deploy to Heroku
+
+Alternatively, you can quickly deploy this project to Heroku. Click on the "Deploy to Heroku" button above or [click this link](https://heroku.com/deploy?template=https://github.com/kaustavdm/opentok-green-screen). You will need OpenTok API key and secret and Heroku will manage the rest.
 
 ### SSL requirements
 
