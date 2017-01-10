@@ -55,7 +55,7 @@ This process ensures that the stream sent out by an OpenTok publisher already ha
 - `assets/` - Client-side assets (styles, scripts, images) that are served as static files by the server.
   - `assets/js/xhr.js` - A simple XHR wrapper.
   - **`assets/js/canvas-draw.js`** - This script provides a function for doing the actual green-screen replace using a HTML `canvas`.
-  - **`assets/js/mock-get-user-media.js`** - Creates a function to override `getUserMedia`. We need it to be able to hijack `getUserMedia` return a stream that we want.
+  - **`assets/js/mock-get-user-media.js`** - Creates a function to override `getUserMedia`. We need it to be able to hijack `getUserMedia` to return a stream that we want.
   - **`assets/js/set-mock-gum.js`** - This calls the override created by `mock-get-user-media.js` and sends the captured `canvas` stream.
   - **`assets/js/call.js`** - This fetches OpenTok credentials from the JSON API using XHR and sets up a simple multi-party call using OpenTok's JS SDK.
 - `libs/` - Reusable utilities and libraries used by the application.
@@ -79,7 +79,7 @@ Alternatively, you can quickly deploy this project to Heroku by clicking the but
 
 ### SSL requirements
 
-You will need SSL to use this demo on latest browsers. You can either set up a proxy through nginx or apache and run this application without SSL, or you can run have `node` serve it directly on SSL when you run `npm start`.
+You will need SSL to use this demo on latest browsers. You can either set up a proxy through nginx or apache and run this application without SSL, or you can let `node` serve it directly on SSL when you run `npm start`.
 
 If you want `node` to serve this application using SSL, you will need to edit `config.js` and change `ssl.enabled` to `true`. Change the values in the `ssl` section to point to your key and certificate pair.
 
