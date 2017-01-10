@@ -40,6 +40,7 @@ router.get("/create", (req, res) => {
       req.utils.error_res(res, 500, "Unable to create session.");
       return;
     }
+    // Try storing the call data in db
     try {
       req.db.put("calls", slug, {
         id: slug,
@@ -54,6 +55,7 @@ router.get("/create", (req, res) => {
       res.redirect(`/call/${slug}`);
       return;
     }
+    // Return success response
     req.utils.success_res(res, "Session created", {
       id: slug,
       call_url: `${req.config.app.base_url}/call/${slug}`,
@@ -71,6 +73,7 @@ router.get("/:id/token", load_call, (req, res) => {
   let slug = req.query.slug || crypto.randomBytes(3).toString("hex");
   let token;
 
+  // Try generating OpenTok token
   try {
     token = req.OT.generateToken(req.call_data.ot_session_id, {
       role: "publisher",
@@ -82,6 +85,7 @@ router.get("/:id/token", load_call, (req, res) => {
     return;
   }
 
+  // Return success reponse
   req.utils.success_res(res, "Token created", {
     ot_token: token,
     ot_session_id: req.call_data.ot_session_id,

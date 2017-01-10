@@ -31,20 +31,6 @@ var canvas_draw = function (videoElement, canvas) {
     }
   };
 
-  var replaceGray = function (data) {
-    var len = data.length;
-
-    for (var i = 0, j = 0; j < len; i++, j += 4) {
-      // Convert from RGB to HSL...
-      var l = rgb2hsl(data[j], data[j + 1], data[j + 2])[2];
-
-      // ... and check if we have a somewhat gray pixel.
-      if (l >0 && l <= 30) {
-        data[j + 3] = 0;
-      }
-    }
-  };
-
   var rgb2hsl = function (r, g, b) {
     r /= 255; g /= 255; b /= 255;
 
@@ -98,7 +84,6 @@ var canvas_draw = function (videoElement, canvas) {
     imgData = tmpCtx.getImageData(0, 0, tmpCanvas.width, tmpCanvas.height);
 
     // Do the replace
-    // replaceGray(imgData.data);
     replaceGreen(imgData.data);
 
     tmpCtx.putImageData(imgData, 0, 0);

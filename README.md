@@ -42,8 +42,7 @@ This demo works has three main components: A `<video>` element, an intermediate 
 2. On each animation frame of the `<video>` element, it's contents are put the intermediate `<canvas>` element, c1.
 3. Each frame of c1 is taken and a modified image data is produced per frame by making all matching green pixels transparent.
 4. For each frame of c1, c2 is painted with the background image and then with the modified image data from c1.
-5. A `MediaStream` object is returned by calling `captureStream()` on c2.
-6. The captured stream from c2 is returned by the hijacked `getUserMedia` function and is piped in to OpenTok's stream.
+5. `getUserMedia` is hijacked to return captured stream from c2 by calling `captureStream()` on c2, which is then piped in to OpenTok's stream.
 
 This process ensures that the stream sent out by an OpenTok publisher already has the replacement done. While this puts more load on the publisher, there are no further manipulations required on the subscribers' side.
 
